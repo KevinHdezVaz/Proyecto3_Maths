@@ -26,6 +26,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -53,6 +54,7 @@ public class FactorPrimeActivity extends BasseEvaluatorActivity {
     ImageView Animacion2;
     Button salir,seguir;
     PhotoViewAttacher photo,poto2;
+    Button boton,boton2,boton3,boton4,btn_pasos;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,9 +64,19 @@ public class FactorPrimeActivity extends BasseEvaluatorActivity {
         mBtnEvaluate.setText(R.string.factor);
         mHint1.setHint(getString(R.string.input_number));
         mInputFormula.setTextColor(getResources().getColor(R.color.black));
+        btn_pasos = findViewById(R.id.btn_pasos);
 
 
+        boton3 = findViewById(R.id.btn12);
+        boton4 = findViewById(R.id.btn13);
 
+        boton2 = findViewById(R.id.btn11);
+
+        boton2.setVisibility(View.GONE);
+        boton4.setVisibility(View.GONE);
+        boton3.setVisibility(View.GONE);
+
+        botonpasos.setVisibility(View.GONE);
         getIntentData();
 
         texto.setText("Los factores primos de un número entero son los números primos divisores exactos de ese número entero. El proceso de búsqueda de esos divisores se denomina factorización de enteros, o factorización en números primos.");

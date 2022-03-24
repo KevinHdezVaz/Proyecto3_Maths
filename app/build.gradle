@@ -8,28 +8,36 @@ apply plugin: 'com.android.application'
         applicationId "com.vazk.calculator"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1"
+        versionCode 5
+        versionName "1.0.112"
         multiDexEnabled true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
     }
 
+    signingConfigs {
+        release {
+            storeFile file('LlaveHuawei.jks')
+            storePassword 'Elmejor_10'
+            keyAlias 'HuaweiKey'
+            keyPassword 'Elmejor_10'
+        }
+    }
+
+     
     buildTypes {
         release {
             minifyEnabled true
+            signingConfig signingConfigs.release
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
+            signingConfig signingConfigs.release
             debuggable true
         }
     }
-//
-//    testOptions {
-//        unitTests.returnDefaultValues = true
-//    }
 
     lintOptions {
         abortOnError false
@@ -39,7 +47,10 @@ apply plugin: 'com.android.application'
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
     }
-}
+     buildFeatures {
+         viewBinding true
+     }
+ }
 
 repositories {
     mavenCentral()
@@ -50,7 +61,8 @@ repositories {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'com.google.firebase:firebase-messaging:20.1.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.json:json:20140107'
@@ -67,8 +79,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'recyclerview-v7'
     }
 
-    implementation platform('com.google.firebase:firebase-bom:27.1.0')
-    implementation 'com.google.firebase:firebase-analytics'
 
     androidTestImplementation 'androidx.test:rules:1.1.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -105,12 +115,20 @@ dependencies {
 
     implementation 'com.commit451:PhotoView:1.2.4'
     implementation 'com.github.MrNtlu:Toastie:1.1.0'
-
-    implementation 'com.github.mukeshsolanki:MarkdownView-Android:1.0.4'
-    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
-    implementation 'com.simplecityapps:recyclerview-fastscroll:1.0.18'
+    implementation 'com.huawei.hms:push:5.1.1.301'
     implementation group: 'commons-io', name: 'commons-io', version: '2.3'
+
+     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+    implementation 'com.simplecityapps:recyclerview-fastscroll:1.0.18'
+    implementation 'com.huawei.agconnect:agconnect-core:1.5.2.300'
+    implementation 'com.huawei.hms:ads:3.4.45.308'
+    implementation 'com.huawei.hms:awareness:1.0.8.301'
+    implementation 'com.huawei.hms:hianalytics:6.1.0.300'
+
+
 
 
 }
-apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.huawei.agconnect'
+
+

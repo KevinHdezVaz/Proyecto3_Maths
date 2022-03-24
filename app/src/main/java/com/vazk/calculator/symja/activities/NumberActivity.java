@@ -20,6 +20,8 @@ package com.vazk.calculator.symja.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -46,10 +48,20 @@ import static com.vazk.calculator.symja.activities.NumberActivity.NumberType.CAT
 public class NumberActivity extends BasseEvaluatorActivity {
     public static final String DATA = "DATA";
     private int type;
-
+    Button boton,boton2,boton3,boton4;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        boton2 = findViewById(R.id.btn11);
+
+        boton3 = findViewById(R.id.btn12);
+        boton4 = findViewById(R.id.btn13);
+
+        boton2.setVisibility(View.INVISIBLE);
+        boton3.setVisibility(View.INVISIBLE);
+        boton4.setVisibility(View.INVISIBLE);
+         botonpasos.setVisibility(View.GONE);
         Intent intent = getIntent();
         if (intent == null) {
             finish();
@@ -62,15 +74,19 @@ public class NumberActivity extends BasseEvaluatorActivity {
         mInputFormula.setEnabled(false);
     }
 
+
     private void setup() {
         mBtnEvaluate.setText(R.string.eval);
         switch (type) {
             case NumberType.CATALAN:
                 mHint1.setHint(getString(R.string.catalan_desc));
                 texto.setText("Los números de Catalan forman una secuencia de números naturales que aparece en varios problemas de conteo que habitualmente son recursivos. Obtienen su nombre del matemático belga Eugène Charles Catalan.");
-                cardView.setEnabled(false);
-                cardView.setActivated(false);
-                cardView.setFocusable(false);
+                botonpasos.setVisibility(View.INVISIBLE);
+
+                boton2.setVisibility(View.INVISIBLE);
+                boton4.setVisibility(View.INVISIBLE);
+
+                boton3.setVisibility(View.INVISIBLE);
                 setTitle(R.string.catalan_number);
                 break;
             case NumberType.FIBONACCI:
@@ -83,6 +99,13 @@ public class NumberActivity extends BasseEvaluatorActivity {
                 break;
             case NumberType.DIVISORS:
                 mHint1.setHint(getString(R.string.divisors));
+                botonpasos.setVisibility(View.INVISIBLE);
+
+
+                boton2.setVisibility(View.INVISIBLE);
+                boton4.setVisibility(View.INVISIBLE);
+
+                boton3.setVisibility(View.INVISIBLE);
 
 
                 texto.setText("Los divisores de un número natural son los números naturales que lo pueden dividir, resultando de cociente otro número natural y de resto 0.");

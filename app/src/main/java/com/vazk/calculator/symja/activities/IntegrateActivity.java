@@ -23,6 +23,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.WorkerThread;
 import android.view.View;
+import android.widget.Button;
+
 import com.vazk.calculator.R;
 
 import com.vazk.calculator.activities.base.BasseEvaluatorActivity;
@@ -46,6 +48,7 @@ import java.util.ArrayList;
 public class IntegrateActivity extends BasseEvaluatorActivity {
     private static final String STARTED = IntegrateActivity.class.getName() + "started";
     private boolean isDataNull = true;
+    Button boton,boton2,boton3,boton4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,16 @@ public class IntegrateActivity extends BasseEvaluatorActivity {
         //hide and show view
         mLayoutLimit.setVisibility(View.VISIBLE);
         getIntentData();
+        texto.setText("Ingresa la integral a resolver y despues toca el boton.");
+        texto2.setText("Recuerda anotar los parentesis por si tu operación los contiene ()");
+        boton2 = findViewById(R.id.btn11);
+
+        boton3 = findViewById(R.id.btn12);
+        boton4 = findViewById(R.id.btn13);
+
+        boton2.setVisibility(View.INVISIBLE);
+        boton3.setVisibility(View.INVISIBLE);
+        boton4.setVisibility(View.INVISIBLE);
 
         boolean isStarted = mPreferences.getBoolean(STARTED, false);
         if ((!isStarted || DLog.UI_TESTING_MODE) && isDataNull) {

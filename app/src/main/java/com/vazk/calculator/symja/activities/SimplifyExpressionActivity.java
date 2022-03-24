@@ -22,6 +22,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 
@@ -45,6 +48,7 @@ public class SimplifyExpressionActivity extends BasseEvaluatorActivity {
     private static final String STARTED = SimplifyExpressionActivity.class.getName() + "started";
     SharedPreferences preferences;
     private boolean isDataNull = true;
+    Button boton,boton2,boton3,boton4;
 
 
     @Override
@@ -67,6 +71,16 @@ public class SimplifyExpressionActivity extends BasseEvaluatorActivity {
                 "       (6x - 2x) + (7 - 5)\n" +
                 "*Finalmente, sumando o restando términos semejantes, se obtiene:\n" +
                 "       4x+2");
+
+        boton2 = findViewById(R.id.btn11);
+
+        boton3 = findViewById(R.id.btn12);
+        boton4 = findViewById(R.id.btn13);
+
+        boton2.setVisibility(View.GONE);
+        boton3.setVisibility(View.GONE);
+        boton4.setVisibility(View.GONE);
+
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
 

@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.vazk.calculator">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+
+
+     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:name="com.vazk.ncalc.CalcApplication"
@@ -13,25 +16,33 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppThemeLight"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".menus.splashscreen">
+        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".Encuesta" />
 
-
-
-
-        </activity>
+        <meta-data
+            android:name="com.huawei.hms.client.channel.androidMarket"
+            android:value="false" />
+        <meta-data
+            android:name="AppGallery"
+            android:value="install_channel_value">
+        </meta-data>
         <activity android:name=".menus.prueba" />
         <activity android:name=".menus.MenuNumeros" />
         <activity android:name=".menus.MenuEstadistica" />
         <activity android:name=".menus.menuCalculo" />
         <activity android:name=".menus.MenuAlgebra" />
         <activity android:name=".PrincipalMenu">
+            <meta-data
+                android:name="install_channel"
+                android:value="AppGallery" />
+
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 
                 <data android:mimeType="text/plain" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -130,11 +141,15 @@
             android:name=".symja.activities.TrigActivity"
             android:launchMode="singleTask" />
 
+        <meta-data
+            android:name="push_kit_auto_init_enabled"
+            android:value="true" />
+
         <service
-            android:name=".Notificaciones"
+            android:name="com.vazk.MyHmsMessageService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 

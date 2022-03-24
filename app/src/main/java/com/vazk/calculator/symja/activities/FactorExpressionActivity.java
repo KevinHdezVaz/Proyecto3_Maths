@@ -22,6 +22,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Html;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.vazk.calculator.R;
@@ -43,6 +47,7 @@ import java.util.ArrayList;
  * Created by Duy on 19/7/2016
  */
 public class FactorExpressionActivity extends BasseEvaluatorActivity {
+    Button boton,boton2,boton3,boton4,btn_pasos;
 
     private static final String STARTED = FactorExpressionActivity.class.getName() + "started";
     private final static String TAG = FactorExpressionActivity.class.getSimpleName();
@@ -63,7 +68,43 @@ public class FactorExpressionActivity extends BasseEvaluatorActivity {
         texto2.setText("Ejemplo: \n\n" +
                 "x^2+5x+4" +
                 "\n*Resultado:\n(x+1)(x+4) ");
+        boton2 = findViewById(R.id.btn11);
+        btn_pasos = findViewById(R.id.btn_pasos);
 
+        boton3 = findViewById(R.id.btn12);
+        boton4 = findViewById(R.id.btn13);
+        botonpasos.setVisibility(View.GONE);
+        boton2.setText(Html.fromHtml("2x<sup>4</sup> +4x<sup>2</sup>"));
+
+        boton3.setText(Html.fromHtml("x<sup>2</sup> +5X+4"));
+        boton4.setText(Html.fromHtml("3x<sup>2</sup>+7-6"));
+
+
+        boton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                mInputFormula.setText("2x^4+4x^2");
+
+            }
+        });
+
+        boton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mInputFormula.setText("x^2+5x+4");
+
+
+            }
+        });
+        boton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mInputFormula.setText("3x^2+7-6");
+
+
+            }
+        });
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean isStarted = preferences.getBoolean(STARTED, false);
         if (!isStarted || DLog.UI_TESTING_MODE) {

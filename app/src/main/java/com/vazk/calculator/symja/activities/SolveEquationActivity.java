@@ -75,15 +75,16 @@ public class SolveEquationActivity extends BasseEvaluatorActivity
         boton3 = findViewById(R.id.btn12);
         boton4 = findViewById(R.id.btn13);
 
-        boton2.setText("-5x - 6 = 3x - 8");
-        boton3.setText(Html.fromHtml("-X<sup>2</sup> - x - 6 = 0"));
+        boton2.setText("5x - 6 = 3x - 8");
+        boton3.setText(Html.fromHtml("-x<sup>2</sup> - x - 6 = 0"));
+        boton4.setText(Html.fromHtml("x<sup>3</sup>-4x<sup>2</sup>-3x-10=0"));
 
 
         boton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                mInputFormula.setText("-5x-6=3x-8");
+                mInputFormula.setText("5x-6=3x-8");
 
             }
         });
@@ -96,10 +97,17 @@ public class SolveEquationActivity extends BasseEvaluatorActivity
 
             }
         });
+        boton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mInputFormula.setText("x^3-4x^2-3x-10=0");
 
+
+            }
+        });
 
         texto.setText("Esta calculadora de ecuaciones permite resolver una ecuación online en forma exacta con los pasos del cálculo: ecuación de primer grado, ecuación de segundo grado, ecuación de producto cero, ecuación logarítmica, ecuación diferencial.");
-        texto2.setText("EjemploS: ");
+        texto2.setText("Ejemplos: ");
             Html.fromHtml("x<sup>2</sup>");
 
         // \n\n-5x-6=3x-8\n-x^2-x-6=0\n-x^4-5x^2+4=0"

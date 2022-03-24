@@ -64,6 +64,7 @@ public class PermutationActivity extends BasseEvaluatorActivity {
     private MathEvaluator evaluator;
     LinearLayout hika3;
 
+    Button boton,boton2,boton3,boton4,btn_pasos;
 
 
     @Override
@@ -96,6 +97,8 @@ public class PermutationActivity extends BasseEvaluatorActivity {
         evaluator = MathEvaluator.getInstance();
         mBtnEvaluate.setText(R.string.eval);
 
+        botonpasos.findViewById(R.id.btn_pasos);
+        botonpasos.setVisibility(View.GONE);
 
 
         hika3 = findViewById(R.id.hika3);

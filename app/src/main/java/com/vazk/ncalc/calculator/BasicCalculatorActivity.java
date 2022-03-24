@@ -268,8 +268,8 @@ public class BasicCalculatorActivity extends AbstractooCalculatorActivity
                         .dimColor(R.color.colorPrimaryDark).targetRadius(70);
 
                 TapTarget target2 = TapTarget.forView(img_history,
-                        "Cambiar despues a español",
-                        "Muestra los clculos que realizaste anteriormente en forma de historial.")
+                        "Historial",
+                        "Muestra los calculos que realizaste anteriormente en forma de historial.")
                         .drawShadow(true)
                         .cancelable(true)
                         .targetCircleColor(R.color.colorAccent)
@@ -278,8 +278,8 @@ public class BasicCalculatorActivity extends AbstractooCalculatorActivity
                         .dimColor(R.color.colorPrimaryDark).targetRadius(70);
 
                 TapTarget target3 = TapTarget.forView(findViewById(R.id.opcionesavanzadas),
-                        "Opcines mas avanzadas",
-                       "Toca la parte inferior para mostrar opciones de calculadora mas avanzados")
+                        "Opciones mas avanzadas",
+                       "Toca la parte inferior para mostrar opciones de calculadora más avanzados")
 
                         .drawShadow(true)
                         .cancelable(true)

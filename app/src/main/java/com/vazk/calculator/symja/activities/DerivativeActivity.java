@@ -24,9 +24,13 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
+
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+
 import com.vazk.calculator.R;
 
 import com.vazk.calculator.activities.base.BasseEvaluatorActivity;
@@ -53,6 +57,7 @@ public class DerivativeActivity extends BasseEvaluatorActivity {
     private static final String STARTED
             = DerivativeActivity.class.getName() + "started";
     private boolean isDataNull = true;
+    Button boton,boton2,boton3,boton4;
 
     private ArrayList<String> mLevel = new ArrayList<>();
 
@@ -68,8 +73,20 @@ public class DerivativeActivity extends BasseEvaluatorActivity {
         for (int i = 1; i < 21; i++) {
             mLevel.add(String.valueOf(i));
         }
+        texto.setText("Ingresa la derivada a resolver y despues toca el boton.");
+        texto2.setText("Recuerda anotar los parentesis por si tu operación los contiene ()");
 
-        //set adapter data
+        boton2 = findViewById(R.id.btn11);
+
+        boton3 = findViewById(R.id.btn12);
+        boton4 = findViewById(R.id.btn13);
+
+        boton2.setVisibility(View.INVISIBLE);
+        boton3.setVisibility(View.INVISIBLE);
+        boton4.setVisibility(View.INVISIBLE);
+
+
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(DerivativeActivity.this,
                 android.R.layout.simple_list_item_single_choice, mLevel);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

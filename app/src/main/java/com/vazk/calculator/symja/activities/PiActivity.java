@@ -23,6 +23,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import android.text.InputType;
+import android.view.View;
+import android.widget.Button;
 
 import com.vazk.calculator.R;
 import com.vazk.calculator.activities.base.BasseEvaluatorActivity;
@@ -45,6 +47,7 @@ public class PiActivity extends BasseEvaluatorActivity {
     private static final String STARTED = PiActivity.class.getName() + "started";
     private boolean isDataNull = true;
     private String precision = "";
+    Button boton,boton2,boton3,boton4,btn_pasos;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,8 +60,20 @@ public class PiActivity extends BasseEvaluatorActivity {
                 InputType.TYPE_NUMBER_FLAG_SIGNED);
 
         getIntentData();
+        btn_pasos = findViewById(R.id.btn_pasos);
 
 
+        boton3 = findViewById(R.id.btn12);
+        boton4 = findViewById(R.id.btn13);
+
+        boton2 = findViewById(R.id.btn11);
+
+        boton2.setVisibility(View.GONE);
+        boton4.setVisibility(View.GONE);
+        boton3.setVisibility(View.GONE);
+
+        botonpasos.setVisibility(View.GONE);
+        getIntentData();
         texto.setText("El número Pi (π) se obtiene al dividir la longitud de una circunferencia por su diámetro. Además, es un número irracional. Esto quiere decir que tiene una infinita cantidad de dígitos que se prolongan tras la coma. Por lo que, jamás se repite un mismo patrón.");
         texto2.setText("En la parte de arriba escribe los digitos que gustes para calcular la presición del número PI.");
 

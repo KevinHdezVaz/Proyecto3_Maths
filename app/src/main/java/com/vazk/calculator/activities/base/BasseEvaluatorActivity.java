@@ -71,6 +71,7 @@ public abstract class BasseEvaluatorActivity extends NavDrawerActivity
         implements View.OnClickListener, FunctionSuggestionAdapter.OnSuggestionClickListener {
     protected String TAG = BasseEvaluatorActivity.class.getName();
     MediaPlayer mediaPlayer;
+    CardView cardview1, cardview2;
 
     public LinearLayout linearLayout;
     protected EditText mEditLowerBound, mEditUpperBound;
@@ -220,6 +221,9 @@ public CardView cardView;
     public void Invisiblee(){
         texto.setVisibility(View.GONE);
         texto2.setVisibility(View.GONE);
+        mProgress.setVisibility(View.GONE);
+
+        linearLayout.setVisibility(View.GONE);
         boton2.setVisibility(View.INVISIBLE);
         boton3.setVisibility(View.INVISIBLE);
         boton4.setVisibility(View.INVISIBLE);

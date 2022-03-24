@@ -24,6 +24,7 @@ public class prueba extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prueba);
+        Toastie.success(prueba.this,"Pega la ecuación en la entrada de datos de arriba para mostrar los pasos.",Toast.LENGTH_LONG).show();
 
 
 
@@ -59,7 +60,6 @@ public class prueba extends AppCompatActivity {
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("asdd", true);
             editor.commit();
-            Toastie.success(prueba.this,"Pega la ecuación en la entrada de datos de arriba para mostrar los pasos.",Toast.LENGTH_LONG).show();
 
         }
         return !ranBefore;

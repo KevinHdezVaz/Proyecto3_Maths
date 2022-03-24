@@ -17,8 +17,8 @@ import android.widget.EditText;
 import com.vazk.calculator.R;
 import com.vazk.ncalc.document.model.FunctionDocumentItem;
 import com.vazk.ncalc.utils.DLog;
-
 import org.apache.commons.io.IOUtils;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
